@@ -9,7 +9,7 @@ package
 	public class Player extends FlxSprite 
 	{
 		public static const GRAVITY:Number		=	1024;
-		public static const MAX_RUN:Number		=	64;
+		public static const MAX_RUN:Number		=	256;
 		public static const ACCEL:Number		=	512;
 		public static const MAX_FALL:Number		=	2048;
 		public static const JUMP_SPEED:Number	=	256;
@@ -21,7 +21,7 @@ package
 			super(x, y);
 			this.createGraphic(16, 32, 0xff0000ff);
 			this.solid = true;
-			this.maxVelocity.y = MAX_FALL;
+			this.maxVelocity = new FlxPoint(MAX_RUN, MAX_FALL);
 			this.acceleration.y = GRAVITY;
 			this.drag.x = ACCEL;
 		}

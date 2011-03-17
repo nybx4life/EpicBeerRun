@@ -14,7 +14,7 @@ package
 		{
 			[Embed(source = "level.png")] var level:Class;
 			[Embed(source = "tiles.png")] var tiles:Class;
-			this.loadMap(FlxTilemap.pngToCSV(level), tiles);
+			this.loadMap(FlxTilemap.pngToCSV(level), tiles, 16, 16);
 		}
 		
 	}
