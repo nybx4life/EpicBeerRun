@@ -11,7 +11,7 @@ package
 		
 		public function EpicBeerRun() 
 		{
-			super(640, 480, FirstState, 2);
+			super(320, 240, FirstState, 2);
 		}
 		
 	}
