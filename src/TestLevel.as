@@ -12,9 +12,10 @@ package
 		
 		public function TestLevel() 
 		{
-			[Embed(source = "level.png")] var level:Class;
-			[Embed(source = "tiles.png")] var tiles:Class;
-			this.loadMap(FlxTilemap.pngToCSV(level), tiles, 16, 16);
+			[Embed(source = "level.png")] var Level:Class;
+			[Embed(source = "tiles.png")] var Tiles:Class;
+			this.loadMap(FlxTilemap.pngToCSV(Level), Tiles);
+			this.solid = true;
 		}
 		
 	}

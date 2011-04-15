@@ -20,6 +20,7 @@ package
 			this.add(text);
 			this.add(beers);
 			FlxG.follow(player);
+			level.follow();
 			FlxG.followAdjust(1, 0);
 			FlxG.showBounds = true;
 			

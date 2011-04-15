@@ -14,7 +14,7 @@ package
 		{
 			super(x, y);
 			this.createGraphic(4, 8);
-			this.origin = new FlxPoint( -20, -8);
+			this.origin = new FlxPoint( -6, -4);
 			this.solid = true;
 		}
 		
