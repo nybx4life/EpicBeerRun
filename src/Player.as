@@ -16,10 +16,14 @@ package
 		public static const JUMP_BOOST:uint		=	4;
 		
 		private var holdjump:Boolean = false;
+		private var beercounter:Number = 0;
 		public function Player(x:uint, y:uint) 
 		{
 			super(x, y);
-			this.createGraphic(16, 32, 0xff0000ff);
+			//this.createGraphic(16, 32, 0xff0000ff);
+			[Embed(source = "player.png")] var Img_Player:Class;
+			
+			this.loadGraphic(Img_Player, false, false, 16, 32, false);
 			this.solid = true;
 			this.maxVelocity = new FlxPoint(MAX_RUN, MAX_FALL);
 			this.acceleration.y = GRAVITY;
@@ -62,6 +66,16 @@ package
 			else
 				this.acceleration.x = 0;
 				
+		}
+		
+		public function addBeerCount():void 
+		{
+			beercounter = beercounter + 1;
+		}
+		
+		public function getBeerCount():String 
+		{
+			return beercounter.toString();
 		}
 	}
 

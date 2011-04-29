@@ -1,6 +1,7 @@
 package  
 {
 	import org.flixel.*;
+	import org.flixel.data.FlxFlash;
 	
 	/**
 	 * ...
@@ -12,17 +13,22 @@ package
 		public var level:TestLevel = new TestLevel();
 		public var text:FlxText = new FlxText(0, 0, 100);
 		public var beers:FlxGroup = new FlxGroup();
+		public var beerGUI:FlxText = new FlxText(0, 0, 100);
+		public var flashBeer:FlxFlash = new FlxFlash();
 		override public function create():void
 		{
 			
 			this.add(player);
 			this.add(level);
-			this.add(text);
+			//this.add(text);
+			this.add(beerGUI);
 			this.add(beers);
 			FlxG.follow(player);
 			level.follow();
 			FlxG.followAdjust(1, 0);
-			FlxG.showBounds = true;
+			FlxG.showBounds = false;
+			
+			beerGUI.scrollFactor.x = beerGUI.scrollFactor.y = 0;
 			
 			for (var y:uint = 0; y < 16; y++)
 			{
@@ -49,15 +55,17 @@ package
 				player.jump();
 			}*/
 			text.text = FlxU.overlap(beers, player, getBeer).toString();
-			player.jumpOnKey(FlxG.keys.SPACE);
+			beerGUI.text = "Beer Counter = " + player.getBeerCount();
+			player.jumpOnKey(FlxG.keys.UP);
 			player.moveOnKeys(FlxG.keys.LEFT, FlxG.keys.RIGHT);
 		}
 		
 		
 		public function getBeer(beer:Beer, player:Player):void
 		{
-			beer.kill();
-			
+			//flashBeer.start();
+			player.addBeerCount();
+			beer.kill();			
 		}
 	}
 
