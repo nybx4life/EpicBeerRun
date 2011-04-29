@@ -13,7 +13,8 @@ package
 		public function Beer(x:uint, y:uint) 
 		{
 			super(x, y);
-			this.createGraphic(4, 8);
+			[Embed(source = "assets/beer1.png")] var Img_Beer1:Class;
+			this.loadGraphic(Img_Beer1, false, false, 8, 24, false);
 			this.origin = new FlxPoint( -6, -4);
 			this.solid = true;
 		}
