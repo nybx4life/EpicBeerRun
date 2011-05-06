@@ -14,6 +14,7 @@ package
 		public var text:FlxText = new FlxText(0, 0, 100);
 		public var beers:FlxGroup = new FlxGroup();
 		public var beerGUI:FlxText = new FlxText(0, 0, 100);
+		public var timerGUI:Timer = new Timer(200, 0, 60);
 		public var flashBeer:FlxFlash = new FlxFlash();
 		override public function create():void
 		{
@@ -22,6 +23,7 @@ package
 			this.add(level);
 			//this.add(text);
 			this.add(beerGUI);
+			this.add(timerGUI);
 			this.add(beers);
 			FlxG.follow(player);
 			level.follow();
@@ -29,6 +31,7 @@ package
 			FlxG.showBounds = false;
 			
 			beerGUI.scrollFactor.x = beerGUI.scrollFactor.y = 0;
+			timerGUI.scrollFactor.x = timerGUI.scrollFactor.y = 0;
 			
 			for (var y:uint = 0; y < 16; y++)
 			{
@@ -55,7 +58,8 @@ package
 				player.jump();
 			}*/
 			text.text = FlxU.overlap(beers, player, getBeer).toString();
-			beerGUI.text = "Beer Counter = " + player.getBeerCount();
+			beerGUI.text = "Beer Counter: " + player.getBeerCount();
+			timerGUI.text = timerGUI.toString();
 			player.jumpOnKey(FlxG.keys.UP);
 			player.moveOnKeys(FlxG.keys.LEFT, FlxG.keys.RIGHT);
 		}
